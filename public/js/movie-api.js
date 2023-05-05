@@ -38,8 +38,8 @@ function renderResults(movie) {
     rating:movie.Rating
   };
 
-  // need to figure out how to send this data to the movie database when entered
-  
+  // need to figure out how to send this data to the movie database when entered, ORM?
+
 };
 
 async function searchMovie() {
