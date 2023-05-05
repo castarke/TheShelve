@@ -7,6 +7,8 @@ const movieData = [
         format:"Bluray",
         watched:true,
         img:"https://m.media-amazon.com/images/M/MV5BMTk4ODQzNDY3Ml5BMl5BanBnXkFtZTcwODA0NTM4Nw@@._V1_.jpg",
+        description:"Eight years after the Joker's reign of chaos, Batman is coerced out of exile with the assistance of the mysterious Selina Kyle in order to defend Gotham City from the vicious guerrilla terrorist Bane..",
+        rating:"8.4",
     },
     {
         title:"Twister",
@@ -14,6 +16,8 @@ const movieData = [
         format:"Bluray",
         watched:true,
         img:"https://m.media-amazon.com/images/I/419yEFYK7NL._AC_UF894,1000_QL80_.jpg",
+        description:"Bill and Jo Harding, advanced storm chasers on the brink of divorce, must join together to create an advanced weather alert system by putting themselves in the cross-hairs of extremely violent tornadoes.",
+        rating:"6.4",
     },
     {
         title:"Driven",
@@ -21,6 +25,8 @@ const movieData = [
         format:"Bluray",
         watched:true,
         img:"https://m.media-amazon.com/images/I/51E-ux4ft8L.jpg",
+        description:"A young hot shot driver is in the middle of a championship season and is coming apart at the seams. A former CART champion is called in to give him guidance.",
+        rating:"4.6",
     },
     {
         title:"Groundhog Day",
@@ -28,6 +34,8 @@ const movieData = [
         format:"Bluray",
         watched:true,
         img:"https://m.media-amazon.com/images/I/51CN5dPdwrL._AC_UF894,1000_QL80_.jpg",
+        description:"A narcissistic, self-centered weatherman finds himself in a time loop on Groundhog Day, and the day keeps repeating until he gets it right.",
+        rating:"8.0",
     },
     {
         title:"Catch Me If You Can",
@@ -35,6 +43,8 @@ const movieData = [
         format:"Bluray",
         watched:false,
         img:"https://i.ebayimg.com/images/g/z7sAAOSwo4pYffZj/s-l1600.jpg",
+        description:"Barely 21 yet, Frank is a skilled forger who has passed as a doctor, lawyer and pilot. FBI agent Carl becomes obsessed with tracking down the con man, who only revels in the pursuit.",
+        rating:"8.1",
     },
     {
         title:"Big Hero 6",
@@ -42,6 +52,8 @@ const movieData = [
         format:"Bluray",
         watched:true,
         img:"https://m.media-amazon.com/images/I/91neoLOIftL._AC_UF894,1000_QL80_.jpg",
+        description:"A special bond develops between plus-sized inflatable robot Baymax and prodigy Hiro Hamada, who together team up with a group of friends to form a band of high-tech heroes.",
+        rating:"7.8",
     },
     {
         title:"O Brother, Where Art Thou?",
@@ -49,6 +61,8 @@ const movieData = [
         format:"Bluray",
         watched:true,
         img:"https://m.media-amazon.com/images/I/51aH-k+lcVL._AC_UF894,1000_QL80_.jpg",
+        description:"In the deep south during the 1930s, three escaped convicts search for hidden treasure while a relentless lawman pursues them.",
+        rating:"7.7",
     },
     {
         title:"John Wick",
@@ -56,6 +70,8 @@ const movieData = [
         format:"Bluray",
         watched:false,
         img:"https://m.media-amazon.com/images/I/81F5PF9oHhL.jpg",
+        description:"An ex-hit-man comes out of retirement to track down the gangsters that killed his dog and took his car.",
+        rating:"7.4",
     },
     {
         title:"Ferris Bueller's Day Off",
@@ -63,6 +79,8 @@ const movieData = [
         format:"Bluray",
         watched:true,
         img:"https://m.media-amazon.com/images/I/61azmcuN4mL._AC_UF894,1000_QL80_.jpg",
+        description:"A high school wise guy is determined to have a day off from school, despite what the Principal thinks of that.",
+        rating:"7.8",
     },
     {
         title:"An Extremely Goofy Movie",
@@ -70,6 +88,8 @@ const movieData = [
         format:"DVD",
         watched:true,
         img:"https://m.media-amazon.com/images/I/51L0m3OHfJL._AC_UF894,1000_QL80_.jpg",
+        description:"Max goes to college, but to his embarassment his father loses his job and goes to his son's campus.",
+        rating:"6.3",
     },
     {
         title:"Tarzan",
@@ -77,6 +97,8 @@ const movieData = [
         format:"DVD",
         watched:true,
         img:"https://m.media-amazon.com/images/I/81lLuEoTMDL._AC_UF894,1000_QL80_.jpg",
+        description:"A man raised by gorillas must decide where he really belongs when he discovers he is a human.",
+        rating:"7.3",
     },
     {
         title:"The Shining",
@@ -84,6 +106,8 @@ const movieData = [
         format:"DVD",
         watched:false,
         img:"https://m.media-amazon.com/images/I/51g-8R5FOhL._AC_UF894,1000_QL80_.jpg",
+        description:"A family heads to an isolated hotel for the winter where a sinister presence influences the father into violence, while his psychic son sees horrific forebodings from both past and future.",
+        rating:"8.4",
     },
     {
         title:"The Incredibles",
@@ -91,6 +115,8 @@ const movieData = [
         format:"DVD",
         watched:false,
         img:"https://m.media-amazon.com/images/I/71kod5t-q9L.jpg",
+        description:"While trying to lead a quiet suburban life, a family of undercover superheroes are forced into action to save the world.",
+        rating:"8.0",
     },
     {
         title:"Wind River",
@@ -98,6 +124,8 @@ const movieData = [
         format:"Bluray",
         watched:true,
         img:"https://m.media-amazon.com/images/M/MV5BMTUyMjU1OTUwM15BMl5BanBnXkFtZTgwMDg1NDQ2MjI@._V1_.jpg",
+        description:"A veteran hunter helps an FBI agent investigate the murder of a young woman on a Wyoming Native American reservation.",
+        rating:"7.7",
     },
     {
         title:"The Meg",
@@ -105,6 +133,8 @@ const movieData = [
         format:"Bluray",
         watched:true,
         img:"https://m.media-amazon.com/images/M/MV5BMTAxMGRmODYtM2NkYS00ZGRlLWE1MWItYjI1MzIwNjQwN2RiXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg",
+        description:"A group of scientists exploring the Marianas Trench encounter the largest marine predator that has ever existed - the Megalodon.",
+        rating:"5.6",
     },
     {
         title:"October Sky",
@@ -112,6 +142,8 @@ const movieData = [
         format:"Bluray",
         watched:false,
         img:"https://m.media-amazon.com/images/I/514Sp7aks5L._AC_UF894,1000_QL80_.jpg",
+        description:"The true story of Homer Hickam, a coal miner's son who was inspired by the first Sputnik launch to take up rocketry against his father's wishes.",
+        rating:"7.8",
     },
     {
         title:"Deep Blue Sea",
@@ -119,6 +151,8 @@ const movieData = [
         format:"DVD",
         watched:false,
         img:"https://m.media-amazon.com/images/I/51qH1I4w9YL._AC_UF894,1000_QL80_.jpg",
+        description:"Searching for a cure to Alzheimer's disease, a group of scientists on an isolated research facility become the prey, as a trio of intelligent sharks fight back.",
+        rating:"5.9",
     },
     {
         title:"Shaun of the Dead",
@@ -126,6 +160,8 @@ const movieData = [
         format:"Bluray",
         watched:true,
         img:"https://m.media-amazon.com/images/M/MV5BMTg5Mjk2NDMtZTk0Ny00YTQ0LWIzYWEtMWI5MGQ0Mjg1OTNkXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_.jpg",
+        description:"The uneventful, aimless lives of a London electronics salesman and his layabout roommate are disrupted by the zombie apocalypse.",
+        rating:"7.9",
     },
     {
         title:"Secondhand Lions",
@@ -133,6 +169,8 @@ const movieData = [
         format:"DVD",
         watched:false,
         img: "https://m.media-amazon.com/images/M/MV5BMTg5Mjk2NDMtZTk0Ny00YTQ0LWIzYWEtMWI5MGQ0Mjg1OTNkXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_.jpg",
+        description:"A coming-of-age story about a shy young boy sent by his irresponsible mother to spend the summer with his wealthy, eccentric uncles in Texas.",
+        rating:"7.5",
     },
     {
         title:"The Breakfast Club",
@@ -140,8 +178,20 @@ const movieData = [
         format:"DVD",
         watched:true,
         img:"https://m.media-amazon.com/images/I/516steLXBbL._AC_UF894,1000_QL80_.jpg",
+        description:"Five high school students meet in Saturday detention and discover how they have a lot more in common than they thought.",
+        rating:"7.8",
     },
 ]
+
+// const newMovie = {
+//     title: movie.Title,
+//     genre: movie.Genre,
+//     format:"",
+//     watched:"",
+//     img:movie.Poster,
+//     description:movie.Plot,
+//     rating:movie.Rating
+//   };
 
 const seedMovie = () => Movie.bulkCreate(movieData)
 
