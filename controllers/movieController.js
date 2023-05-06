@@ -1,44 +1,46 @@
-const { Movie } = require("../config/connection");
+const router = require('express').Router();
+const { Movie } = require('../models');
 
-module.exports = {
-  getAllMovies: (req, res) => {
-    Movie.findAll()
-      .then((movies) => {
-        res.render("movies", { movies });
-      })
-      .catch((err) => {
+
+
+  router.get("/movie", async (req, res) => {
+    try {
+      const movies = await Movie.findAll();
+        res.render("movie", { movies });
+    } catch(err) {
         console.log(err);
         res.status(500).send("Internal Server Error");
-      });
-  },
+      };
+    }),
 
-  getOneMovie: (req, res) => {
-    const movieId = req.params.id;
 
-    Movie.findByPk(movieId)
-      .then((movie) => {
-        if (!movie) {
-          res.status(404).send("Movie not found");
-        } else {
-          res.render("movieDetails", { movie });
+  router.get("/movie/:id", async (req, res) => {
+    try{
+      const movieId = req.params.id;
+      const movie = await Movie.findByPk(movieId);
+          if (!movie) {
+            res.status(404).send("Movie not found");
+          } else {
+            res.render("movieDetails", { movie });
+          }
         }
-      })
-      .catch((err) => {
+      catch(err) {
         console.log(err);
         res.status(500).send("Internal Server Error");
-      });
-  },
+      }
+  });
 
-  addMovie: (req, res) => {
-    const { title, genre, format, watched, img, description, rating } = req.body;
+ router.post("/movie", async (req, res) => {
+  try{   
+     const { title, genre, format, watched, img, description, rating } = req.body;
+     
+     await Movie.create({ title, genre, format, watched, img, description, rating })
+      res.redirect("/movies");
 
-    Movie.create({ title, genre, format, watched, img, description, rating })
-      .then(() => {
-        res.redirect("/movies");
-      })
-      .catch((err) => {
+  } catch(err) {
         console.log(err);
         res.status(500).send("Internal Server Error");
-      });
-  },
-};
+      }
+    });
+// 
+  module.exports = router;
