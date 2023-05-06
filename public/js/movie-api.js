@@ -1,5 +1,7 @@
 
-const movieData = require('../../seeds/movie')
+// const movieData = require('../../seeds/movie')
+const { Model, DataTypes } = require('sequelize');
+const sequelize = require('../config/connection');
 const searchInput = document.getElementById('search-input');
 const searchButton = document.getElementById('search-btn');
 const results = document.getElementById('results');
@@ -25,7 +27,7 @@ function renderResults(movie) {
   results.appendChild(movieRating)
 
   const movieGenre = document.createElement('h3');
-  movieGenre.textContent =movie.genre
+  movieGenre.textContent =movie.Genre
   results.appendChild(movieGenre) 
 
   const newMovie = {
@@ -35,11 +37,28 @@ function renderResults(movie) {
     watched:"",
     img:movie.Poster,
     description:movie.Plot,
-    rating:movie.Rating
+    rating:movie.imdbRating
   };
 
   // need to figure out how to send this data to the movie database when entered, ORM?
 
+  async function addMovie(newMovie) {
+    try {
+      const movie = await.Movie.create({
+        title: newMovie.title,
+        genre: newMovie.genre,
+        format: newMovie.format,
+        watched: newMovie.watched,
+        img: newMovie.img,
+        description: newMovie.description,
+        rating: newMovie.rating
+      });
+      console.log(`Added ${movie.Title}`)
+    }catch(error) {
+      console.log(error)
+    }
+  }
+  addMovie()
 };
 
 async function searchMovie() {

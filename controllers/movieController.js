@@ -30,9 +30,9 @@ module.exports = {
   },
 
   addMovie: (req, res) => {
-    const { title, format, genre, watched } = req.body;
+    const { title, genre, format, watched, img, description, rating } = req.body;
 
-    Movie.create({ title, format, genre, watched })
+    Movie.create({ title, genre, format, watched, img, description, rating })
       .then(() => {
         res.redirect("/movies");
       })
