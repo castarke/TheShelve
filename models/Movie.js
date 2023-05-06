@@ -8,7 +8,8 @@ Movie.init(
         id: {
             type:DataTypes.INTEGER,
             allowNull: false,
-            autoIncrement: true
+            autoIncrement: true,
+            primaryKey:true
         },
         title: {
             type: DataTypes.STRING,
@@ -20,11 +21,11 @@ Movie.init(
         },
         format:{
             type:DataTypes.STRING,
-            allowNull: false
+            allowNull: true
         },
         watched:{
             type:DataTypes.BOOLEAN,
-            allowNull:false,
+            allowNull:true,
             defaultValue: false,
             trueValue: 'Yes',
             falseValue:'No',
@@ -32,6 +33,14 @@ Movie.init(
         img:{
             type: DataTypes.STRING,
             allowNull: true
+        },
+        description:{
+            type:DataTypes.STRING,
+            allowNull:true
+        },
+        rating:{
+            type:DataTypes.DECIMAL,
+            allowNull:true
         }
     },
     {
