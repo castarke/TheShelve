@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Movie, User } = require('../../models');
+const { Movie } = require('../models');
 const withAuth = require('../utils/auth');
  
 router.get('/',  withAuth, async (req, res) => {

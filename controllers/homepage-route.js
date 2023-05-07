@@ -18,7 +18,8 @@ router.get('/', async (req, res) => {
                 'description',
                 'rating'
             ],            
-        });
+        }
+        );
 
         const movie = movieData.map( singleMovie => singleMovie.get({plain: true}))
         // console.log(post)
