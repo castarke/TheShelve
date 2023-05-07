@@ -8,7 +8,7 @@ const movieData = [
         watched:true,
         img:"https://m.media-amazon.com/images/M/MV5BMTk4ODQzNDY3Ml5BMl5BanBnXkFtZTcwODA0NTM4Nw@@._V1_.jpg",
         description:"Eight years after the Joker's reign of chaos, Batman is coerced out of exile with the assistance of the mysterious Selina Kyle in order to defend Gotham City from the vicious guerrilla terrorist Bane..",
-        rating:"8.4",
+        rating:"8.4"
     },
     {
         title:"Twister",

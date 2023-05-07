@@ -1,14 +1,15 @@
 
 <h1>The Shelve</h1>
-{{#each post as |post|}}
+{{#each movie as |movie|}}
   <section class="card">
     <a href="/movie/{{id}}" class="card-body">
-        <img class="movie-poster">{{img}}</h3> 
-        <h5>Movie: {{movie.title}} Rating:{{movie.rating}}</h5>
+        <img src="{{img}}" class="movie-poster"> 
+        <h5>Movie: {{movie.title}}</h5>
+        <h5> Rating:{{movie.rating}}</h5>
         <p class="card-text">{{description}}</p>
     </a>
   </section>
-{{#each movies as |movie|}}
-{{> movie-details}}
-
 {{/each}}
+{{!-- {{> movie-details}} --}}
+
+{{!-- {{/each}} --}}
