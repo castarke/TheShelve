@@ -4,7 +4,7 @@ const { Movie } = require('../models');
 
 
 
-  router.get("/movie", async (req, res) => {
+  router.get("/", async (req, res) => {
     try {
       const movies = await Movie.findAll();
         res.render("movie", { movies });
@@ -15,14 +15,17 @@ const { Movie } = require('../models');
     }),
 
 
-  router.get("/movie/:id", async (req, res) => {
+  router.get("/:id", async (req, res) => {
     try{
       const movieId = req.params.id;
       const movie = await Movie.findByPk(movieId);
+      movie.get({plain:true})
           if (!movie) {
             res.status(404).send("Movie not found");
           } else {
-            res.render("movieDetails", { movie });
+            const movieData =movie.dataValues
+            console.log(movieData)
+            res.render("movie", {movieData});
           }
         }
       catch(err) {
@@ -31,9 +34,9 @@ const { Movie } = require('../models');
       }
   });
 
- router.post("/movie", async (req, res) => {
+ router.post("/newMovie", async (req, res) => {
   try{   
-     const { title, genre, format, watched, img, description, rating } = req.body;
+     const { title, genre, format, watched, img, description, rating, user_id } = req.body;
      
      await Movie.create({ title, genre, format, watched, img, description, rating })
       res.redirect("/movies");

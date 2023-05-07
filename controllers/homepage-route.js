@@ -28,7 +28,7 @@ router.get('/', async (req, res) => {
         // res.status(200).json(postData)
         res.render('homepage',{
             movie, 
-            login: req.session.login
+            loggedIn: req.session.loggedIn
         })
     } catch(err){
         console.log('There was an Error')
@@ -54,7 +54,7 @@ router.get('/movie/:id', async (req,res)=>{
 
         res.render('edit-movie', {
             ...movie,
-            login: req.session.login
+            loggedIn: req.session.loggedIn
         });
     } catch (err){
         res.status(500).json(err);
@@ -62,12 +62,12 @@ router.get('/movie/:id', async (req,res)=>{
 });
 router.get('/login', (req, res) => {
     // If the user is already logged in, redirect the request to another route
-    if (req.session.login) {
+    if (req.session.loggedIn) {
       res.redirect('/');
       return;
     }
-    const login = req.session.login
-    res.render('login', login);
+    const loggedIn = req.session.loggedIn
+    res.render('login', loggedIn);
   });
 
   router.get('/signup', (req,res)=>{
