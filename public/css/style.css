@@ -1,5 +1,5 @@
 :root {
-  --primary: #3d5852;
+  --primary: #000000;
   --secondary: #86938f;
   --tertiary: #5e877f;
   --quatrinary: #6c6b67;
@@ -43,7 +43,7 @@ main {
 
 aside {
   flex: 0;
-  background-color: var(--tertiary);
+  background-color: black;
   padding: 80px;
   text-align: left;
   color: var(--light);
@@ -51,11 +51,11 @@ aside {
 
 nav {
   display: flex;
-  background-color: var(--secondary);
+  background-color: #0a0a0a !important;
 }
 
 nav a {
-  color: var(--light);
+  color: #0a0a0a !important;
   padding: 14px 20px;
   text-decoration: none;
   text-align: center;
@@ -68,7 +68,7 @@ nav a:hover {
 
 .movies {
   flex: 4;
-  background-color: #fff;
+  background-color: #0a0a0a !important;
   padding: 50px;
   display: flex;
   flex-flow: row wrap;
@@ -103,6 +103,7 @@ img {
   text-align: center;
   padding: 10px 20px;
   font-weight: bold;
+  background-color: black;
 }
 
 /* CARDS */
@@ -124,7 +125,7 @@ img {
   border-radius: var(--border-radius);
   border-style: double;
   border-width: thick;
-  background-color: #577a7c;
+  background-color: black;
   color: var(--light);
 }
 
@@ -142,17 +143,20 @@ img {
   font-size: 1.4rem;
   text-align: center;
   font-weight: bold;
+  background-color: black;
 }
 
 .movies-name {
+  color: #485fc7;
   text-transform: uppercase;
   letter-spacing: 3px;
-  text-shadow: 2px 2px 5px var(--secondary);
+  text-shadow: 2px 2px 5px red;
   border: 10px groove var(--light);
   padding-top: 30px;
   padding-bottom: 30px;
   padding-right: 100px;
   padding-left: 100px;
+  background-color: black;
 }
 
 /* LAYOUT */
@@ -161,4 +165,16 @@ img {
   flex-flow: column wrap;
   align-content: flex-start;
   align-items: center;
+}
+
+#logout:hover {
+
+  background-color: var(--dark);
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+#search-bar {
+  background-color: #a0aeaa;
+
 }

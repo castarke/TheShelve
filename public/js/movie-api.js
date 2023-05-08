@@ -27,17 +27,17 @@ function renderResults(movie) {
   results.appendChild(movieRating)
 
   const movieGenre = document.createElement('h3');
-  movieGenre.textContent =movie.Genre
-  results.appendChild(movieGenre) 
+  movieGenre.textContent = movie.Genre
+  results.appendChild(movieGenre)
 
   const newMovie = {
     title: movie.Title,
     genre: movie.Genre,
-    format:"",
-    watched:"",
-    img:movie.Poster,
-    description:movie.Plot,
-    rating:movie.imdbRating
+    format: "",
+    watched: "",
+    img: movie.Poster,
+    description: movie.Plot,
+    rating: movie.imdbRating
   };
 
   // need to figure out how to send this data to the movie database when entered, ORM?
@@ -54,7 +54,7 @@ function renderResults(movie) {
         rating: newMovie.rating
       });
       console.log(`Added ${movie.Title}`)
-    }catch(error) {
+    } catch (error) {
       console.log(error)
     }
   }
@@ -62,13 +62,13 @@ function renderResults(movie) {
 };
 
 async function searchMovie() {
-try {
-  const userInput = searchInput.value;
-  const movie = await searchFor(userInput, apiKey)
-      renderResults(movie);
-} catch (error){
-console.log(error)
-}
+  try {
+    const userInput = searchInput.value;
+    const movie = await searchFor(userInput, apiKey)
+    renderResults(movie);
+  } catch (error) {
+    console.log(error)
+  }
 };
 
 async function fetchMovie(userInput, apiKey) {
