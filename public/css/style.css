@@ -69,6 +69,7 @@ nav a:hover {
 .movies {
   flex: 4;
   background-color: #0a0a0a !important;
+  color:#e3e4e3 !important;
   padding: 50px;
   display: flex;
   flex-flow: row wrap;
@@ -114,6 +115,15 @@ img {
   border-radius: 10px;
   background-color: var(--light);
   color: var(--dark);
+}
+
+.please-login {
+  font-size: 50px;
+    margin: 0 0 20px 0;
+    flex: 0 0 50%;
+    max-width: 50%;
+    padding: 5px;
+    color: var(--light);
 }
 
 .login-card {
