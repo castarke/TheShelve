@@ -40,11 +40,10 @@ function renderResults(movie) {
     rating: movie.imdbRating
   };
 
-  // need to figure out how to send this data to the movie database when entered, ORM?
 
   async function addMovie(newMovie) {
     try {
-      const movie = await.Movie.create({
+      const movie = await Movie.create({
         title: newMovie.title,
         genre: newMovie.genre,
         format: newMovie.format,
