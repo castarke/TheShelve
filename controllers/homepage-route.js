@@ -3,10 +3,11 @@ const { Movie, User } = require('../models');
 
 router.get('/', async (req, res) => {
     try{  
-        // console.log('homepage route reached')
-        // const response = await
-        // fetch('http://localhost:3001/api/post')
-        // const postData = await response.json()
+        if (!req.session.loggedIn) {
+            res.redirect('/login');
+            return
+        }
+        
         const movieData = await Movie.findAll({
             attributes:[
                 'id',
@@ -22,10 +23,7 @@ router.get('/', async (req, res) => {
         );
 
         const movie = movieData.map( singleMovie => singleMovie.get({plain: true}))
-        // console.log(post)
-        // res.status(200).json(post)
-        // console.log('post: ', post)
-        // res.status(200).json(postData)
+
         res.render('homepage',{
             movie, 
             loggedIn: req.session.loggedIn

@@ -1,16 +1,14 @@
 {{!-- <h1>The Shelve</h1> --}}
+{{#unless loggedIn}}
+<p>Please <a href="/login">login</a> to view all your movies!</p>
+{{else}}
 {{#each movie as |movie|}}
 <section class="movies-name">
   <a href="/movie/{{id}}" class="card-body">
     <img src="{{img}}" class="movies has-background-black">
-    {{!-- <img src="{{movieData.img}}"> --}}
-
     <h5>Movie: {{movie.title}}</h5>
-    <h5> Rating:{{movie.rating}}</h5>
-    <p class="card-text">{{description}}</p>
+
   </a>
 </section>
 {{/each}}
-{{!-- {{> movie-details}} --}}
-
-{{!-- {{/each}} --}}
+{{/unless}}
