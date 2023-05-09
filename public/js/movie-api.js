@@ -1,35 +1,43 @@
-
+// Import required packages and modules
 // const movieData = require('../../seeds/movie')
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
-const searchInput = document.getElementById('search-input');
-const searchButton = document.getElementById('search-btn');
-const results = document.getElementById('results');
+const { Model, DataTypes } = require("sequelize");
+const sequelize = require("../config/connection");
+
+// Get DOM elements
+const searchInput = document.getElementById("search-input");
+const searchButton = document.getElementById("search-btn");
+const results = document.getElementById("results");
+
+// Store API key in variable
 const apiKey = process.env.OMDB_API_KEY;
 
+// Function to render movie search results
 function renderResults(movie) {
-  results.innerHTML = '';
+  // Clear previous search results
+  results.innerHTML = "";
 
-  const movieTitle = document.createElement('h2');
+  // Create DOM elements for each movie property and append to results
+  const movieTitle = document.createElement("h2");
   movieTitle.textContent = movie.Title;
   results.appendChild(movieTitle);
 
-  const moviePoster = document.createElement('img');
+  const moviePoster = document.createElement("img");
   moviePoster.src = movie.Poster;
   results.appendChild(moviePoster);
 
-  const moviePlot = document.createElement('h3');
+  const moviePlot = document.createElement("h3");
   moviePlot.textContent = movie.Plot;
   results.appendChild(moviePlot);
 
-  const movieRating = document.createElement('h3');
+  const movieRating = document.createElement("h3");
   movieRating.textContent = movie.imdbRating;
-  results.appendChild(movieRating)
+  results.appendChild(movieRating);
 
-  const movieGenre = document.createElement('h3');
-  movieGenre.textContent = movie.Genre
-  results.appendChild(movieGenre)
+  const movieGenre = document.createElement("h3");
+  movieGenre.textContent = movie.Genre;
+  results.appendChild(movieGenre);
 
+  // Create newMovie object with properties from movie search result
   const newMovie = {
     title: movie.Title,
     genre: movie.Genre,
@@ -37,10 +45,10 @@ function renderResults(movie) {
     watched: "",
     img: movie.Poster,
     description: movie.Plot,
-    rating: movie.imdbRating
+    rating: movie.imdbRating,
   };
 
-
+  // Function to add new movie to database
   async function addMovie(newMovie) {
     try {
       const movie = await Movie.create({
@@ -50,37 +58,37 @@ function renderResults(movie) {
         watched: newMovie.watched,
         img: newMovie.img,
         description: newMovie.description,
-        rating: newMovie.rating
+        rating: newMovie.rating,
       });
-      console.log(`Added ${movie.Title}`)
+      console.log(`Added ${movie.Title}`);
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   }
-  addMovie()
-};
+  addMovie();
+}
 
 async function searchMovie() {
   try {
     const userInput = searchInput.value;
-    const movie = await searchFor(userInput, apiKey)
+    const movie = await searchFor(userInput, apiKey);
     renderResults(movie);
-  } catch (error) {
-    console.log(error)
-  }
-};
-
-async function fetchMovie(userInput, apiKey) {
-  try {
-    const returnedSearch = await fetch(`https://www.omdbapi.com/?t=${userInput}&apikey=${apiKey}`);
-
-    const searchResults = await returnedSearch.json();
-    return searchResults;
-
   } catch (error) {
     console.log(error);
   }
-};
+}
 
-searchButton.addEventListener('click', searchMovie);
+async function fetchMovie(userInput, apiKey) {
+  try {
+    const returnedSearch = await fetch(
+      `https://www.omdbapi.com/?t=${userInput}&apikey=${apiKey}`
+    );
 
+    const searchResults = await returnedSearch.json();
+    return searchResults;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+searchButton.addEventListener("click", searchMovie);
