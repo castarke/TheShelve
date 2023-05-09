@@ -1,7 +1,7 @@
 # The Shelve
 
 ## Description
-
+The Shelve is a movie database to keep track of your personal collection of movies. Movie fanatics will have the ability to upload a list of their currently owned movies to the database to help them keep track of what they already own and make sure that duplicates are not being purchased. It can also be used to look up important information such as the movie plot and imdb rating about any movie you are considering on adding to your personal collection. 
 ## Table of contents
 * [Installation](#Installation)
 * [Usage](#Usage)
@@ -19,11 +19,16 @@ Use the `schema.sql` file in the `db` folder to create your database with MySQL 
 ## Usage 
 
 ## Visuals
+![This is an image](./public/images/Visuals1.png)
+
+![This is an image](./public/images/Visuals1.png)
+
+![This is an image](./public/images/Visuals1.png)
 
 
 ## Links 
-*https://theshelve.herokuapp.com/
-*https://github.com/castarke/TheShelve
+[Heroku](https://theshelve.herokuapp.com/)
+[Github Repository](https://github.com/castarke/TheShelve)
 
 ## Collaborators 
 
