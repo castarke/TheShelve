@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const { error } = require('console');
 const { User } = require('../../models');
 
 
@@ -8,6 +9,7 @@ router.post('/login', async (req, res) => {
         { where: { email: req.body.email } 
       })
       if (!userData) {
+        console.log(error)
         throw new Error('User Not Found')
       }
       const validPassword = userData.checkPassword(req.body.password);
