@@ -1,21 +1,16 @@
-// Import required packages and modules
-// const movieData = require('../../seeds/movie')
-const { Model, DataTypes } = require("sequelize");
-const sequelize = require("../config/connection");
 
-// Get DOM elements
-const searchInput = document.getElementById("search-input");
-const searchButton = document.getElementById("search-btn");
-const results = document.getElementById("results");
+const searchInput = document.getElementById('search-bar');
+const searchButton = document.getElementById('zipForm');
+let results = document.getElementById('results');
 
-// Store API key in variable
-const apiKey = process.env.OMDB_API_KEY;
 
-// Function to render movie search results
-function renderResults(movie) {
+
+async function renderResults(movie) {
+  if(!results){
+    results = document.createElement('div')
+  }
   // Clear previous search results
   results.innerHTML = "";
-
   // Create DOM elements for each movie property and append to results
   const movieTitle = document.createElement("h2");
   movieTitle.textContent = movie.Title;
@@ -33,62 +28,57 @@ function renderResults(movie) {
   movieRating.textContent = movie.imdbRating;
   results.appendChild(movieRating);
 
-  const movieGenre = document.createElement("h3");
-  movieGenre.textContent = movie.Genre;
-  results.appendChild(movieGenre);
-
-  // Create newMovie object with properties from movie search result
-  const newMovie = {
-    title: movie.Title,
-    genre: movie.Genre,
-    format: "",
-    watched: "",
-    img: movie.Poster,
-    description: movie.Plot,
-    rating: movie.imdbRating,
-  };
-
-  // Function to add new movie to database
-  async function addMovie(newMovie) {
-    try {
-      const movie = await Movie.create({
-        title: newMovie.title,
-        genre: newMovie.genre,
-        format: newMovie.format,
-        watched: newMovie.watched,
-        img: newMovie.img,
-        description: newMovie.description,
-        rating: newMovie.rating,
-      });
-      console.log(`Added ${movie.Title}`);
-    } catch (error) {
-      console.log(error);
-    }
-  }
-  addMovie();
+  const movieGenre = document.createElement('h3');
+  movieGenre.textContent = movie.Genre
+  results.appendChild(movieGenre)
 }
+    
+async function addMovie(movie) {
+  try {
+    const newMovie = {
+      title: movie.Title,
+      genre: movie.Genre,
+      format: "",
+      watched: false,
+      img: movie.Poster,
+      description: movie.Plot,
+      rating: movie.imdbRating
+  }
+  const createdMovie = await Movie.create(newMovie);
+  renderMovie(createdMovie)
+}catch (err) {
+  console.log(err)
+}}
 
 async function searchMovie() {
   try {
     const userInput = searchInput.value;
-    const movie = await searchFor(userInput, apiKey);
+
+    // const movie = await fetchMovie(userInput, apiKey)
+    console.log('userInput from movie-api', userInput)
+    const foundMovie = await fetch('/movie/searchOMDB:', {
+        method: 'GET',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify({
+          userInput
+        })
+      })
+    const movie = await foundMovie.json()
     renderResults(movie);
   } catch (error) {
-    console.log(error);
+    console.log(error)
   }
-}
+};
 
-async function fetchMovie(userInput, apiKey) {
-  try {
-    const returnedSearch = await fetch(
-      `https://www.omdbapi.com/?t=${userInput}&apikey=${apiKey}`
-    );
+// const saveBtn = document.getElementById('saveBtn')
+//   saveBtn.addEventListener('click',()=>{
+//   // const addMovieBtn = document.createElement('button');
+//   // addMovieBtn.textContent = `Add ${movie.Title} to database`;
+//   // addMovieBtn.addEventListener('click', ()=> {
+//     addMovie(movieData);
+//   });
 
-    const searchResults = await returnedSearch.json();
-    return searchResults;
-  } catch (error) {
-    console.log(error);
-  }
-}
-
-searchButton.addEventListener("click", searchMovie);
+searchButton.addEventListener('submit', (event)=> {
+  event.preventDefault()
+  window.location.replace('/movie/searchOMDB/'+searchInput.value)
+});
