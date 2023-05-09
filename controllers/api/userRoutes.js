@@ -1,5 +1,4 @@
 const router = require('express').Router();
-const { error } = require('console');
 const { User } = require('../../models');
 
 
