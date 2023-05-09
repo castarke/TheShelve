@@ -1,9 +1,6 @@
-
 const searchInput = document.getElementById('search-bar');
 const searchButton = document.getElementById('zipForm');
 let results = document.getElementById('results');
-
-
 
 async function renderResults(movie) {
   if(!results){
