@@ -44,3 +44,9 @@ app.use(routes);
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening'));
 });
+
+const sharp = require('sharp');
+sharp('./public/images/shelve123.jpg')
+  .resize(400, 400)
+  .toFile("./public/images/newimg.jpg")
+  .then(() => console.log('img-resized'));
