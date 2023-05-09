@@ -17,37 +17,50 @@ const apiKey = process.env.OMDB_API_KEY;
     }),
 
   router.get("/:id", async (req, res) => {
-    try{
+    try {
       const movieId = req.params.id;
       const movie = await Movie.findByPk(movieId);
-      movie.get({plain:true})
-          if (!movie) {
-            res.status(404).send("Movie not found");
-          } else {
-            const movieData =movie.dataValues
-            console.log(movieData)
-            res.render("movie", {movieData});
-          }
-        }
-      catch(err) {
-        console.log(err);
-        res.status(500).send("Internal Server Error");
+      movie.get({ plain: true });
+      // If no movie was found, send a 404 response
+      if (!movie) {
+        res.status(404).send("Movie not found");
+      } else {
+        const movieData = movie.dataValues;
+        console.log(movieData);
+        // Render the 'movie' view and pass in the retrieved movie as data
+        res.render("movie", { movieData });
       }
+    } catch (err) {
+      console.log(err);
+      res.status(500).send("Internal Server Error");
+    }
   });
 
- router.post("/newMovie", async (req, res) => {
-  try{   
-     const { title, genre, format, watched, img, description, rating, user_id } = req.body;
-     
-     await Movie.create({ title, genre, format, watched, img, description, rating })
-      res.redirect("/movies");
+// Route for creating a new movie
+router.post("/newMovie", async (req, res) => {
+  try {
+    // Extract data from the request body
+    const { title, genre, format, watched, img, description, rating, user_id } =
+      req.body;
 
-  } catch(err) {
+    // Create a new movie with the extracted data
+    await Movie.create({
+      title,
+      genre,
+      format,
+      watched,
+      img,
+      description,
+      rating,
+    });
+        // Redirect to the '/movies' route
+        res.redirect("/movies");
+      } catch (err) {
         console.log(err);
         res.status(500).send("Internal Server Error");
       }
     });
-
+    
     router.get("/searchOMDB/:movieTitle", withAuth, async (req, res) => {
       try {
           const userInput = req.params.movieTitle
@@ -72,4 +85,6 @@ const apiKey = process.env.OMDB_API_KEY;
       }
     });
 
-  module.exports = router;
+// Export the router
+module.exports = router;
+

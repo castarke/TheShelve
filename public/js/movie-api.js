@@ -1,3 +1,4 @@
+
 const searchInput = document.getElementById('search-bar');
 const searchButton = document.getElementById('zipForm');
 let results = document.getElementById('results');
@@ -8,23 +9,24 @@ async function renderResults(movie) {
   if(!results){
     results = document.createElement('div')
   }
+  // Clear previous search results
   results.innerHTML = "";
-
-  const movieTitle = document.createElement('h2');
+  // Create DOM elements for each movie property and append to results
+  const movieTitle = document.createElement("h2");
   movieTitle.textContent = movie.Title;
   results.appendChild(movieTitle);
 
-  const moviePoster = document.createElement('img');
+  const moviePoster = document.createElement("img");
   moviePoster.src = movie.Poster;
   results.appendChild(moviePoster);
 
-  const moviePlot = document.createElement('h3');
+  const moviePlot = document.createElement("h3");
   moviePlot.textContent = movie.Plot;
   results.appendChild(moviePlot);
 
-  const movieRating = document.createElement('h3');
+  const movieRating = document.createElement("h3");
   movieRating.textContent = movie.imdbRating;
-  results.appendChild(movieRating)
+  results.appendChild(movieRating);
 
   const movieGenre = document.createElement('h3');
   movieGenre.textContent = movie.Genre
@@ -51,6 +53,7 @@ async function addMovie(movie) {
 async function searchMovie() {
   try {
     const userInput = searchInput.value;
+
     // const movie = await fetchMovie(userInput, apiKey)
     console.log('userInput from movie-api', userInput)
     const foundMovie = await fetch('/movie/searchOMDB:', {
@@ -75,9 +78,7 @@ async function searchMovie() {
 //     addMovie(movieData);
 //   });
 
-
 searchButton.addEventListener('submit', (event)=> {
   event.preventDefault()
   window.location.replace('/movie/searchOMDB/'+searchInput.value)
 });
-
