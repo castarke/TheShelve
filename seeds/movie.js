@@ -168,7 +168,7 @@ const movieData = [
         genre:"Drama",
         format:"DVD",
         watched:false,
-        img: "https://m.media-amazon.com/images/M/MV5BMTg5Mjk2NDMtZTk0Ny00YTQ0LWIzYWEtMWI5MGQ0Mjg1OTNkXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_.jpg",
+        img: "https://m.media-amazon.com/images/I/51twOGryC2L.jpg",
         description:"A coming-of-age story about a shy young boy sent by his irresponsible mother to spend the summer with his wealthy, eccentric uncles in Texas.",
         rating:"7.5",
     },

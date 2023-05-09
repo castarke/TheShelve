@@ -1,9 +1,8 @@
-<section class="movies-smaller">
-    {{!-- <img src="{{movieData.img}}"> --}}
 
-    <div class="movies-smaller-details">
+{{#if movieData.title}}
+<section class="movies-smaller" id="movie">
+    <div class="movies-smaller-details" id="results">
         <img src="{{movieData.img}}">
-
         <h3>{{movieData.title}}</h3>
         <p>Genre: {{movieData.genre}}</p>
         <p>Format: {{movieData.format}}</p>
@@ -11,4 +10,18 @@
         <p>Description: {{movieData.description}}</p>
         <p>Rating: {{movieData.rating}}</p>
     </div>
+    {{else}}
+        <div class="movies-smaller-details" id="results">
+        <img src="{{movieData.Poster}}">
+        <h3>{{movieData.Title}}</h3>
+        <p>Genre: {{movieData.Genre}}</p>
+        <p>Format: {{movieData.format}}</p>
+        <p>Watched: {{movieData.watched}}</p>
+        <p>Description: {{movieData.Plot}}</p>
+        <p>Rating: {{movieData.Rating}}</p>
+        <button id="saveBtn">Save to Database</button>
+    </div>
+    {{/if}}
 </section>
+<script src="/js/movie-api.js"></script> 
+

@@ -17,7 +17,6 @@
     <nav>
         <a class="has-text-white-bis is-size-4" href="/">Home</a>
         {{#if loggedIn}}
-        <a href="/dashboard" class="has-text-white-bis is-size-4">Dashboard</a>
         <button id="logout" class="btn-no-style has-text-white-bis is-size-4">Logout</button>
         {{else}}
         <a class="has-text-white-bis is-size-4" href="/login">Login</a>
@@ -25,7 +24,6 @@
         <form class="ml-2 pt-2" id="zipForm" class="form">
             <input style="width:50%" id="search-bar" class="input is-rounded is-medium" type="text"
                 placeholder="Search Movie">
-
         </form>
 
     </nav>
@@ -39,6 +37,7 @@
     </main>
     {{#if loggedIn}}
     <script src="/js/logout.js"></script>
+    <script src="/js/movie-api.js"></script>
     {{/if}}
 </body>
 
