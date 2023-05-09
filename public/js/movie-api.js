@@ -1,14 +1,7 @@
-
-// // const movieData = require('../../seeds/movie')
-// const { Model, DataTypes } = require('sequelize');
-// const sequelize = require('../config/connection');
-// const sharp = require('sharp')
-// import { Model, DataTypes } from "sequelize";
-// import sequelize from "../../config/connection";
 const searchInput = document.getElementById('search-bar');
 const searchButton = document.getElementById('zipForm');
 let results = document.getElementById('results');
-// require('dotenv').config();
+
 
 
 async function renderResults(movie) {
@@ -16,7 +9,7 @@ async function renderResults(movie) {
     results = document.createElement('div')
   }
   results.innerHTML = "";
-console.log('made it')
+
   const movieTitle = document.createElement('h2');
   movieTitle.textContent = movie.Title;
   results.appendChild(movieTitle);
@@ -36,36 +29,15 @@ console.log('made it')
   const movieGenre = document.createElement('h3');
   movieGenre.textContent = movie.Genre
   results.appendChild(movieGenre)
-
-
-    renderMovie(results);
-      // const addMovieBtn = document.createElement('button');
-      // addMovieBtn.textContent = `Add ${movie.Title} to database`;
-      // addMovieBtn.addEventListener('click', ()=> {
-      //   addMovie(movie);
-      // });
-      // results.appendChild(addMovieBtn)
-    }
+}
     
-
-// async function findMovie(title) {
-//   try {
-//     const movie = await Movie.findOne({
-//       where: {title: title}
-//     });
-//     return movie
-//   } catch (err) {
-//     console.log(err)
-//   }
-// }
-
 async function addMovie(movie) {
   try {
     const newMovie = {
       title: movie.Title,
       genre: movie.Genre,
       format: "",
-      watched: "",
+      watched: false,
       img: movie.Poster,
       description: movie.Plot,
       rating: movie.imdbRating
@@ -75,23 +47,6 @@ async function addMovie(movie) {
 }catch (err) {
   console.log(err)
 }}
-
-function renderMovie(movie) {
-  const movieData = {
-    title: movie.title,
-    genre: movie.genre,
-    format: movie.format,
-    watched: movie.watched,
-    img: movie.img,
-    description: movie.description,
-    rating: movie.rating
-  };
-  // const template = Handlebars.compile(document.querySelector('#movie').innerHTML);
-  // console.log('movieData', movieData)
-  // console.log('template',template)
-  // const html = template(movieData);
-  // results.innerHTML = html
-  };
 
 async function searchMovie() {
   try {
@@ -112,24 +67,17 @@ async function searchMovie() {
   }
 };
 
-// async function fetchMovie(userInput, apiKey) {
-//   console.log('made it')
-//   try {
-//     const returnedSearch = await fetch(`https://www.omdbapi.com/?t=${userInput}&apikey=${apiKey}`);
-// debugger
-//     const searchResults = await returnedSearch.json();
-//     console.log(searchResults)
-//     console.log('Return Search', returnedSearch)
-//     return searchResults;
-  
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
+// const saveBtn = document.getElementById('saveBtn')
+//   saveBtn.addEventListener('click',()=>{
+//   // const addMovieBtn = document.createElement('button');
+//   // addMovieBtn.textContent = `Add ${movie.Title} to database`;
+//   // addMovieBtn.addEventListener('click', ()=> {
+//     addMovie(movieData);
+//   });
+
 
 searchButton.addEventListener('submit', (event)=> {
   event.preventDefault()
   window.location.replace('/movie/searchOMDB/'+searchInput.value)
-  // searchMovie()
 });
 
